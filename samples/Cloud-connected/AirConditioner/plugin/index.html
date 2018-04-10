@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<title>Air Conditioner</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- Stylesheet-->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -20,19 +23,24 @@
 	<body>
 		<!-- Action bar-->
 		<div id="action_bar">
-			<div id="action_bar_back_button" onclick="backAction()">
+			<span id="action_bar_back_button" onclick="backAction()">
 				<img src="res/board_ic_arrow_left.png" style="width: 100%; height:auto;" id="icon_back"/>
-			</div>
-		</div>
-
-		<!-- Hearder-->
-		<div id="Header_bar">
-			<div id="action_bar_title">
+			</span>
+			<span id="action_bar_title">
 				<div id="action_bar_title_sub" class="roboto-condensed-bold">HOME - LIVING ROOM</div>
 				<div id="action_bar_title_main" class="roboto-condensed-bold">AIR CONDITIONER</div>
+			</span>
+			<span id="action_bar_more">
+			</span>
 			</div>
-			<div id="power_icon_back_circle" onclick="onPowerBtnClicked()">
-				<img class="svg-class"src="res/ic_power.svg"></img>
+
+<div class="row-custom">
+	<div class="left-col">
+
+		<!-- Header-->
+		<div id="header_bar">
+			<div id="power_icon_back_circle" class="svg-class" onclick="onPowerBtnClicked()">
+				<!--<img class="svg-class" src="res/ic_power.svg"></img>-->
 			</div>
 		</div>
 
@@ -56,15 +64,17 @@
 				<div class="coolsingset_container">
 					<div class="coolsingset_container_text">
 						<div class="coolingset_item_title roboto-regular">Set</div>
+							<div class="coolingset_item_title">
 						<span class="coolingset_item_content roboto-regular" id="coolingsetTemp" >24</span>
 						<span class="coolingset_item_unit roboto-regular" id="coolingsetUnit">°C</span>
 					</div>
+						</div>
 					<div class="coolsingset_container_btn">
-						<span class="coolingset_plus_minus" onclick="onPlusBtnClicked()">
-							<img class="plus_icon">
+							<span class="coolingset_plus_minus plus_icon" onclick="onPlusBtnClicked()">
+								<!--<img class="plus_icon">-->
 						</span>
-						<span class="coolingset_plus_minus" onclick="onMinusBtnClicked()">
-							<img class="minus_icon">
+							<span class="coolingset_plus_minus minus_icon" onclick="onMinusBtnClicked()">
+								<!--<img class="minus_icon">-->
 						</span>
 					</div>
 				</div>
@@ -104,10 +114,13 @@
 				</div>
 			</div>
 
+			</div>
+			<div class="right-col">
+
 			<!-- functional table -->
 			<div class="function_item">
-				<div class="item_icon">
-						<img class ="fan_icon">
+					<div class="item_icon fan_icon">
+						<!--<img class ="fan_icon">-->
 				</div>
 				<div class="item_body1">
 					<div class="function_item_multiline">
@@ -115,39 +128,41 @@
 						<p class="function_item_multiline_2 roboto-condensed-regular" id="fanSpeed">Medium</p>
 					</div>
 				</div>
-				<div class="item_icon">
-					<img class ="arrow_icon" id="fanSpeed_arrow" onclick="onSelectfanspeed()">
-					<div id="listbox" class="listbox-content" onmouseout="closeListBox(this)">
-				    <a id="high" onclick="onSelectHigh()">High</a>
-				    <a id="medium" onclick="onSelectMedium()">Medium</a>
-				    <a id="low" onclick="onSelectLow()">Low</a>
-						<a id="sleep" onclick="onSelectSleep()">Sleep</a>
-				  </div>
+				<div class="item_icon arrow_icon" id="fanSpeed_arrow" onclick="onSelectfanspeed(event)">
+						<!--<img class ="arrow_icon" id="fanSpeed_arrow" onclick="onSelectfanspeed()">-->
+						<div id="listbox" class="listbox-content">
+							<a href="#" id="high" onclick="onSelectHigh()">High</a>
+							<a href="#" id="medium" onclick="onSelectMedium()">Medium</a>
+							<a href="#" id="low" onclick="onSelectLow()">Low</a>
+							<a href="#" id="sleep" onclick="onSelectSleep()">Sleep</a>
+				  		</div>
+					</div>
 				</div>
-			</div>
 
-			<div class="function_item">
-				<div class="item_icon">
-						<img class ="filter_icon">
+				<div class="function_item">
+					<div class="item_icon filter_icon">
+						<!--<img class ="filter_icon">-->
+					</div>
+					<div class="item_body2">
+						<div class="function_item_multiline">
+							<p class="function_item_multiline_1 roboto-condensed-regular">Filter state</p>
+							<p class="function_item_multiline_2 roboto-condensed-regular" id="filterState">Normal</p>
+						</div>
+					</div>
 				</div>
-				<div class="item_body2">
-					<div class="function_item_multiline">
-						<p class="function_item_multiline_1 roboto-condensed-regular">Filter state</p>
-						<p class="function_item_multiline_2 roboto-condensed-regular" id="filterState">Normal</p>
+
+				<div class="function_item">
+					<div class="item_icon energy_icon">
+						<!--<img class ="energy_icon">-->
+					</div>
+					<div class="item_body2">
+						<div class="function_item_multiline">
+							<p class="function_item_multiline_1 roboto-condensed-regular">Energy meter</p>
+							<p class="function_item_multiline_2 roboto-condensed-regular" id="energyMeter">20kwh</p>
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="function_item">
-				<div class="item_icon">
-						<img class ="energy_icon">
-				</div>
-				<div class="item_body2">
-					<div class="function_item_multiline">
-						<p class="function_item_multiline_1 roboto-condensed-regular">Energy meter</p>
-						<p class="function_item_multiline_2 roboto-condensed-regular" id="energyMeter">20kwh</p>
-					</div>
-				</div>
 			</div>
 	</body>
 </html>
