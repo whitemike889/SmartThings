@@ -404,15 +404,16 @@ body {
   color: #252525;
 }
 
-.function_item{
+.function_container{
+  margin: 0 0 0 5%;
   padding: 10px;
-	/* #margin-top : 10px;
-	#margin-bottom : auto; */
-	margin-left:5%;
-  height: 50px;
-  width:100%;
-  color: #ffffff;
   border-bottom: rgba(0,0,0,0.07) solid 1px;
+}
+
+.function_item{
+  height:75px;
+  width:100%;
+  color: white;
 }
 
 .item_icon {
@@ -605,7 +606,7 @@ body {
     width: 50%;
   }
 
-  .function_item{
+  .function_container{
     margin-left: 0;
   }
 

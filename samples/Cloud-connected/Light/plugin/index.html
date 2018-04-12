@@ -27,50 +27,51 @@
 			</span>
 			<span id="action_bar_more">
 			</span>
-			</div>
+		</div>
 			
-<div class="row-custom">
-	<div class="left-col">
-		<!-- Header-->
-		<div id="header_bar">
-			<div id="power_icon_back_circle" class="svg-class" onclick="onPowerBtnClicked()">
-				<!--<img class="svg-class" src="res/ic_power.svg"></img>-->
-			</div>
-		</div>
+		<div class="row-custom">
+			<div class="left-col">
+				<!-- Header-->
+				<div id="header_bar">
+					<div id="power_icon_back_circle" class="svg-class" onclick="onPowerBtnClicked()">
+						<!--<img class="svg-class" src="res/ic_power.svg"></img>-->
+					</div>
+				</div>
 
-		<!-- dimmer area-->
-		<div class="dimmer_sub_bar roboto-medium">Dimmer</div>
-		<div id="dimmer_area">
-			<div id="dimmer_sub_area">
-				<div id="dimmer_area_bg1">
-					<div id="dimmer_area_bg2"></div>
+				<!-- dimmer area-->
+				<div class="dimmer_sub_bar roboto-medium">Dimmer</div>
+				<div id="dimmer_area">
+					<div id="dimmer_sub_area">
+						<div id="dimmer_area_bg1">
+							<div id="dimmer_area_bg2"></div>
+						</div>
+					</div>
+					<div id="switch_level_area_text">60%</div>
 				</div>
+				<!-- functional table -->
+				<div class="function_item">
+						<div class="function_container_borderless">
+							<p class="function_item_multiline_1 roboto-condensed-regular">Dimmer</p>
+							<input type="range" step="5" id="dimmer_range" onchange="InputDimmer(this.id, this.value)" style="--min: 0; --max: 100; --val: 50">
+						</div>
+					</div>
 			</div>
-			<div id="switch_level_area_text">60%</div>
-		</div>
-			<!-- functional table -->
-			<div class="function_item">
-					<div class="function_container_borderless">
-				<p class="function_item_multiline_1 roboto-condensed-regular">Dimmer</p>
-						<input type="range" step="5" id="dimmer_range" onchange="InputDimmer(this.id, this.value)" style="--min: 0; --max: 100; --val: 50">
-			</div>
-				</div>
-				</div>
-				<div class="right-col">
-			<div class="function_item">
+
+			<div class="right-col">
+				<div class="function_item">
 					<div class="function_container">
 						<div class="item_icon colortemperature_icon">
 							<!--<img class ="colortemperature_icon">-->
-				</div>
-				<div class="item_body">
-					<div class="function_item_multiline">
-						<p class="function_item_multiline_1 roboto-condensed-regular">Color temperature</p>
-						<p class="function_item_multiline_2 roboto-condensed-regular" id="color_temperature">200k</p>
+						</div>
+						<div class="item_body">
+							<div class="function_item_multiline">
+								<p class="function_item_multiline_1 roboto-condensed-regular">Color temperature</p>
+								<p class="function_item_multiline_2 roboto-condensed-regular" id="color_temperature">200k</p>
+							</div>
+						</div>
 					</div>
-				</div>
-					</div>
-			</div> <!-- functional table -->
+				</div> <!-- functional table -->
 			</div>
-			</div>
+		</div>
 	</body>
 </html>

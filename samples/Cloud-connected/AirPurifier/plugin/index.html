@@ -29,93 +29,97 @@
 			</span>
 			<span id="action_bar_more">
 			</span>
-			</div>
-
-<div class="row-custom">
-	<div class="left-col">
-		<!-- Header-->
-		<div id="header_bar">
-			<div id="power_icon_back_circle" onclick="onPowerBtnClicked()">
-				<img class="svg-class"src="res/ic_power.svg"></img>
-			</div>
-		</div>
-		<!-- fan speed combo area-->
-		<div id="combo_area" align="center">
-			<select id="comboFanSpeed" class="mode_bar mode_bar_text roboto-condensed-bold" onchange="onSelectFanSpeed(this)">
-				<option value="High">High</option>
-				<option value="Medium">Medium</option>
-				<option value="Low">Low</option>
-				<option value="Sleep">Sleep</option>
-			</select>
 		</div>
 
-		<!-- air quality circle area-->
-		<div id="air_quality_area" class="roboto-condensed-regular">
-			<img id="svg-status-id" src="res/air_purifier_mode_circle_01.svg"/>
-			<div id="air_quality_area_text">Good</div>
-		</div>
-		<div class="status_sub_bar roboto-condensed-regular">INDOOR</div>
-
-		<!-- status bar -->
-		<div class="status-container">
-				<div class="TOAHChildContainer TOAHChildContainerTemp">
-					<div class="status_item_title roboto-condensed-regular">PM 10</div>
-					<div class="TOAHChildDetail">
-						<span class="status_item_content roboto-condensed-regular" id="dustLevel">Good</span>
+		<div class="row-custom">
+			<div class="left-col">
+				<!-- Header-->
+				<div id="header_bar">
+					<div id="power_icon_back_circle" onclick="onPowerBtnClicked()">
+						<img class="svg-class"src="res/ic_power.svg">
 					</div>
 				</div>
-				<div class="TOAHDivider TOAHDividerCaseFour"> </div>
-
-				<div class="TOAHChildContainer TOAHChildContainerTemp">
-					<div class="status_item_title roboto-condensed-regular">PM 2.5</div>
-					<div class="TOAHChildDetail">
-						<span class="status_item_content roboto-condensed-regular" id="fineDustLevel">Bad</span>
-					</div>
+				<!-- fan speed combo area-->
+				<div id="combo_area" align="center">
+					<select id="comboFanSpeed" class="mode_bar mode_bar_text roboto-condensed-bold" onchange="onSelectFanSpeed(this)">
+						<option value="High">High</option>
+						<option value="Medium">Medium</option>
+						<option value="Low">Low</option>
+						<option value="Sleep">Sleep</option>
+					</select>
 				</div>
-				<div class="TOAHDivider TOAHDividerCaseFour"> </div>
 
-				<div class="TOAHChildContainer TOAHChildContainerTemp">
-					<div class="status_item_title roboto-condensed-regular">Odor</div>
-					<div class="TOAHChildDetail">
-						<span class="status_item_content roboto-condensed-regular" id="odorLevel">Good</span>
-					</div>
+				<!-- air quality circle area-->
+				<div id="air_quality_area" class="roboto-condensed-regular">
+					<img id="svg-status-id" src="res/air_purifier_mode_circle_01.svg"/>
+					<div id="air_quality_area_text">Good</div>
 				</div>
-			</div> <!-- status bar -->
+				<div class="status_sub_bar roboto-condensed-regular">INDOOR</div>
+
+				<!-- status bar -->
+				<div class="status-container">
+					<div class="TOAHChildContainer TOAHChildContainerTemp">
+							<div class="status_item_title roboto-condensed-regular">PM 10</div>
+							<div class="TOAHChildDetail">
+								<span class="status_item_content roboto-condensed-regular" id="dustLevel">Good</span>
+							</div>
+						</div>
+					<div class="TOAHDivider TOAHDividerCaseFour"> </div>
+
+					<div class="TOAHChildContainer TOAHChildContainerTemp">
+							<div class="status_item_title roboto-condensed-regular">PM 2.5</div>
+							<div class="TOAHChildDetail">
+								<span class="status_item_content roboto-condensed-regular" id="fineDustLevel">Bad</span>
+							</div>
+						</div>
+					<div class="TOAHDivider TOAHDividerCaseFour"> </div>
+
+					<div class="TOAHChildContainer TOAHChildContainerTemp">
+						<div class="status_item_title roboto-condensed-regular">Odor</div>
+						<div class="TOAHChildDetail">
+							<span class="status_item_content roboto-condensed-regular" id="odorLevel">Good</span>
+						</div>
+					</div>
+				</div> <!-- status bar -->
 			</div>
 			<div class="right-col">
-			<!-- functional table -->
-			<div class="function_item">
-					<div class="item_icon filter_icon">
-						<!--<img class ="filter_icon">-->
-				</div>
-				<div class="item_body">
-					<div class="function_item_multiline">
-						<p class="function_item_multiline_1 roboto-condensed-regular">
-							Filter state
-						</p>
-						<p class="function_item_multiline_2 roboto-condensed-regular" id="filter_state">
-							Normal
-						</p>
+				<!-- functional table -->
+				<div class="function_item">
+					<div class="function_container">
+						<div class="item_icon filter_icon">
+							<!--<img class ="filter_icon">-->
+						</div>
+						<div class="item_body">
+							<div class="function_item_multiline">
+								<p class="function_item_multiline_1 roboto-condensed-regular">
+									Filter state
+								</p>
+								<p class="function_item_multiline_2 roboto-condensed-regular" id="filter_state">
+									Normal
+								</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div> <!-- functional table -->
+				</div> <!-- functional table -->
 
-			<div class="function_item">
-					<div class="item_icon energy_icon">
-						<!--<img class ="energy_icon">-->
-				</div>
-				<div class="item_body">
-					<div class="function_item_multiline">
-						<p class="function_item_multiline_1 roboto-condensed-regular">
-							Energy meter
-						</p>
-						<p class="function_item_multiline_2 roboto-condensed-regular" id="energyMeter">
-							20 kwh
-						</p>
+				<div class="function_item">
+					<div class="function_container">
+						<div class="item_icon energy_icon">
+							<!--<img class ="energy_icon">-->
+						</div>
+						<div class="item_body">
+							<div class="function_item_multiline">
+								<p class="function_item_multiline_1 roboto-condensed-regular">
+									Energy meter
+								</p>
+								<p class="function_item_multiline_2 roboto-condensed-regular" id="energyMeter">
+									20 kwh
+								</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div> <!-- functional table -->
+				</div> <!-- functional table -->
 			</div>
-			</div>
+		</div>
 	</body>
 </html>
