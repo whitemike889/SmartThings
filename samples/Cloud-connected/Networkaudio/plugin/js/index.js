@@ -124,8 +124,16 @@ function onSelectRepeate(event) {
 	event.stopPropagation();
 }
 
+function onSelectOption(event) {
+	document.getElementById("more_option_listbox").classList.toggle("show", true);
+	event.stopPropagation();
+}
+
 function closeListBox() {
 	if (document.getElementById("repeat_listbox").classList.contains('show')) {
+		capabilityMediaPlaybackRepeat.closeListbox();
+	}
+	if (document.getElementById("more_option_listbox").classList.contains('show')) {
 		capabilityMediaPlaybackRepeat.closeListbox();
 	}
 	// var x1 = event.offsetLeft;
@@ -140,19 +148,20 @@ function closeListBox() {
 	// 	document.getElementById("repeat_listbox").classList.toggle("show", false);
 }
 
+function onOptionInfo() {
+	console.log("Information");
+}
+
 function onSelectOff() {
 	capabilityMediaPlaybackRepeat.set("off");
-	event.stopPropagation();
 }
 
 function onSelectOne() {
 	capabilityMediaPlaybackRepeat.set("one");
-	event.stopPropagation();
 }
 
 function onSelectAll() {
 	capabilityMediaPlaybackRepeat.set("all");
-	event.stopPropagation();
 }
 
 function onClickShuffle(suffleMode) {

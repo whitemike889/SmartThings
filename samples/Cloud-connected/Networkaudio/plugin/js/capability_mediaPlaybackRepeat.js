@@ -55,14 +55,18 @@ var capabilityMediaPlaybackRepeat = {
 		this.closeListbox();
 	},
 
-		'closeListbox' : function() {
-			var list = document.getElementsByClassName("repeat-listbox-content");
-			var i;
-			for (i = 0; i < list.length; i++) {
-				var openList = list[i];
-				if (openList.classList.contains('show')) {
-					openList.classList.remove('show');
-				}
+	'closeListbox' : function() {
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
+		var list = document.getElementsByClassName("repeat-listbox-content");
+		var i;
+		for (i = 0; i < list.length; i++) {
+			var openList = list[i];
+			if (openList.classList.contains('show')) {
+				openList.classList.remove('show');
 			}
+		}
 	}
 }

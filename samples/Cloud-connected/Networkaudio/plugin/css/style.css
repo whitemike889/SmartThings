@@ -124,6 +124,12 @@ body {
     max-height:24px;
 }
 
+#icon_back_info {
+    max-width:24px;
+    max-height:24px;
+    padding: 15px 15px;
+}
+
 #icon_menu_box {
     display:flex;
     align-items: center;
@@ -539,6 +545,69 @@ body {
   display: block;
 }
 
+.info-page-content {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.info-page-content a {
+    color: black;
+    /*padding: 35px 17px;*/
+    text-decoration: none;
+    display: inline-block;
+}
+
+.more-option-listbox-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 168px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 10px;
+    top: 20px;
+    z-index: 2;
+    border-radius: 6%;
+}
+
+.more-option-listbox-content a {
+    color: black;
+    padding: 15px 17px;
+    text-decoration: none;
+    display: block;
+}
+
+.more-option-listbox-content a:hover {
+    background-color: #ccc;
+}
+
+.option-select-icon {
+  width: 24px;
+  height: 24px;
+	color: #252525;
+  background-color: #3695dd;
+  float: right;
+  opacity: 0.9;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.option-select-icon:before {
+  content: "";
+  background-image: url("../res/ic_check.png");
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-repeat: no-repeat;
+}
+
 .repeat-listbox-content {
     display: none;
     position: absolute;
@@ -706,6 +775,25 @@ input:checked + .slider:before {
   transform: translateX(15px);
 }
 
+.content-page-info {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    min-height: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0px;
+    top: 0px;
+}
+
+.content-page-info a {
+    color: black;
+    padding: 5px 7px;
+    text-decoration: none;
+    display: block;
+}
+
 .row-custom {
   content: "";
   clear: both;
@@ -722,6 +810,31 @@ input:checked + .slider:before {
 .right-col {
   float: left;
   width: 100%;
+}
+
+.info-row {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.info-cropper {
+  /*background-color: #ebebeb;*/
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.cropped-info:before {
+  content: "";
+  background-image: url("../res/info_network_audio.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 @media only screen and (orientation: landscape) {
