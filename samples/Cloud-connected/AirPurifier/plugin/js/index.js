@@ -21,6 +21,13 @@ var capabilities = [capabilitySwitch, capabilityFanspeed, capabilityAirQualitySe
 window.onload = function () {
 	console.log("version : 0.0.1");
 	init();
+	
+	document.body.addEventListener('click', function() {
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
+	})
 };
 
 function init() {
@@ -77,4 +84,9 @@ function onSelectFanSpeed(selectedItem) {
 	} else if(selectedItem.value == "Sleep") {
 		capabilityFanspeed.set(1);
 	}
+}
+
+function onSelectOption(event) {
+	document.getElementById("more_option_listbox").classList.toggle("show", true);
+	event.stopPropagation();
 }

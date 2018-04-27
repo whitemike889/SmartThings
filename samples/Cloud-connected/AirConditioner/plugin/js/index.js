@@ -101,6 +101,12 @@ function closeListBox(event) {
 	if (document.getElementById("listbox").classList.contains('show')) {
 		capabilityFanspeed.closeListbox();
 	}
+	if (document.getElementById("more_option_listbox").classList.contains('show')) {
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
+	}	
 }
 
 function onSelectHigh() {
@@ -120,5 +126,10 @@ function onSelectLow() {
 
 function onSelectSleep() {
 	capabilityFanspeed.set("sleep");
+	event.stopPropagation();
+}
+
+function onSelectOption(event) {
+	document.getElementById("more_option_listbox").classList.toggle("show", true);
 	event.stopPropagation();
 }

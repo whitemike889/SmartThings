@@ -33,6 +33,13 @@ window.onload = function () {
 	_R.addEventListener('input', function(e) {
 		_R.style.setProperty('--val', +_R.value);
 	}, false);
+
+	document.body.addEventListener('click', function() {
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
+	})
 };
 
 function init() {
@@ -79,5 +86,10 @@ function onPowerBtnClicked() {
 }
 
 function InputDimmer(rangeId, rangeValue) {
-		capabilitySwitchLevel.set(parseInt(rangeValue));
+	capabilitySwitchLevel.set(parseInt(rangeValue));
+}
+
+function onSelectOption(event) {
+	document.getElementById("more_option_listbox").classList.toggle("show", true);
+	event.stopPropagation();
 }

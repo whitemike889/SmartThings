@@ -21,6 +21,13 @@ var capabilities = [capabilitySwitch, capabilityDishwasherMode, capabilityDishwa
 window.onload = function () {
 	console.log("version : 0.0.1");
 	init();
+
+	document.body.addEventListener('click', function() {
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
+	})
 };
 
 function init() {
@@ -77,4 +84,9 @@ function onCancelClicked() {
 
 function onSelectMode(selectedItem) {
 	capabilityDishwasherMode.set(selectedItem.value);
+}
+
+function onSelectOption(event) {
+	document.getElementById("more_option_listbox").classList.toggle("show", true);
+	event.stopPropagation();
 }

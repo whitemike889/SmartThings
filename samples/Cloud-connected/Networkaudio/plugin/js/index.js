@@ -134,7 +134,10 @@ function closeListBox() {
 		capabilityMediaPlaybackRepeat.closeListbox();
 	}
 	if (document.getElementById("more_option_listbox").classList.contains('show')) {
-		capabilityMediaPlaybackRepeat.closeListbox();
+		var option = document.getElementsByClassName("more-option-listbox-content");
+		if(option[0].classList.contains('show')){
+			option[0].classList.remove('show');
+		}
 	}
 	// var x1 = event.offsetLeft;
 	// var y1 = event.offsetTop;
