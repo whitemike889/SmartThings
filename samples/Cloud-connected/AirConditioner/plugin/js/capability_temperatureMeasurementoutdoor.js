@@ -26,6 +26,7 @@ var capabilityTemperatureMeasurement_outdoor = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["temperature"] === undefined) return;
 			document.getElementById("outterTemp").innerHTML = rcsJsonString["temperature"];
 			document.getElementById("outterUnit").innerHTML = "°" + rcsJsonString["units"];
 		}

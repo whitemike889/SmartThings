@@ -27,6 +27,7 @@ var capabilityAudioTrackData = {
 
 		capabilitySwitch.powerState = rcsJsonString["power"];
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["title"] === undefined) return;
 			if (title != null && title != "")
 				document.getElementById("title").innerHTML = rcsJsonString["title"];
 			else

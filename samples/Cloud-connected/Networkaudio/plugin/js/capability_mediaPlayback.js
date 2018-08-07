@@ -27,6 +27,7 @@ var capabilityMediaPlayback = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["modes"] === undefined) return;
 			capabilityMediaPlayback.value = rcsJsonString["modes"];
 
 			var image = document.getElementById("playbutton");

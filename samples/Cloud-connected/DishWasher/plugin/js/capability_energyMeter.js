@@ -26,6 +26,7 @@ var capabilityEnergyMeter = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["energyMeter"] === undefined) return;
 			document.getElementById("energyMeter").innerHTML = rcsJsonString["energy"] + rcsJsonString["unit"];
 		}
 	}

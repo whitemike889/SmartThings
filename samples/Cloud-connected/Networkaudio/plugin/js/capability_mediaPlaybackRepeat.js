@@ -27,6 +27,7 @@ var capabilityMediaPlaybackRepeat = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["modes"] === undefined) return;
 			capabilityMediaPlaybackRepeat.value = rcsJsonString["modes"];
 			if(capabilityMediaPlaybackRepeat.value == "off") {
 				document.getElementById("repeat").style.color = "#252525";

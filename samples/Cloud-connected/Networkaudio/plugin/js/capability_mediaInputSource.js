@@ -26,6 +26,7 @@ var capabilityMediaInputSource = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["modes"] === undefined) return;
 			var mode = [];
 			mode = rcsJsonString["modes"];
 			switch(mode[0]) {

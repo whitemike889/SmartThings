@@ -26,6 +26,7 @@ var capabilitySwitchLevel = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["dimmingSetting"] === undefined) return;
 			document.getElementById("switch_level_area_text").innerHTML = rcsJsonString["dimmingSetting"] + "%";
 			document.getElementById("dimmer_range").value = rcsJsonString["dimmingSetting"];
 

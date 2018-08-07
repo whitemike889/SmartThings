@@ -28,6 +28,7 @@ var capabilityThermostatCoolingSetpoint = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["temperature"] === undefined) return;
 			capabilityThermostatCoolingSetpoint.desieredTemperature = rcsJsonString["temperature"];
 			capabilityThermostatCoolingSetpoint.unit = rcsJsonString["units"];
 			document.getElementById("coolingsetTemp").innerHTML = capabilityThermostatCoolingSetpoint.desieredTemperature;

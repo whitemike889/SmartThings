@@ -26,6 +26,7 @@ var capabilityAirQualitySensor = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["airQuality"] === undefined) return;
 			document.getElementById("svg-status-id").classList.remove('status-good', 'status-normal', 'status-poor', 'status-very-poor')
 			if (rcsJsonString["airQuality"] <= 25) {
 				document.getElementById("svg-status-id").classList.add('status-very-poor')

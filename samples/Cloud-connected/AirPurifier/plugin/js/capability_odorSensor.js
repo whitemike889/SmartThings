@@ -26,6 +26,7 @@ var capabilityOdorSensor = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["odorLevel"] === undefined) return;
 			if (rcsJsonString["odorLevel"] <= 1)
 				document.getElementById("odorLevel").innerHTML = "Good";
 			else if (rcsJsonString["odorLevel"] <= 2)

@@ -27,6 +27,7 @@ var capabilityDishwasherOperatingState = {
 		scplugin.log.debug(className, arguments.callee.name, uri);
 
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
+			if(rcsJsonString["currentMachineState"] === undefined) return;
 			if (rcsJsonString["currentMachineState"] == "run") {
 				document.getElementById("state").src = "res/washer_ic_pause.png";
 				document.getElementById("cancel_button").style.visibility = "visible";
