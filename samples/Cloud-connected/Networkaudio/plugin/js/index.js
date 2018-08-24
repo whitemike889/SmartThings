@@ -154,10 +154,6 @@ function onNextClicked() {
 	capabilityMediaTrackControl.set("next");
 }
 
-function onVolumeClicked() {
-	capabilityAudioVolume.muteToggle();
-}
-
 function InputVolume(rangeId, rangeValue) {
 	capabilityAudioVolume.setVolume(parseInt(rangeValue));
 }

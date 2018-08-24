@@ -8,14 +8,12 @@
 		<!-- Stylesheet-->
 		<link rel="stylesheet" href="css/bulma.min.css">
 		<link rel="stylesheet" href="css/helper.css">
-
-		<!-- SAMSUNG CONNECT API -->
-		<script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/component_navigation.js"></script>
 	</head>
 	<body style="background-color:#fafafa;">
         <div class="columns is-marginless is-mobile ">
             <div class="column is-narrow">
-                <figure class="image is-32x32 margin-left-s" onclick="location.href='index.html'">
+                <figure class="image is-32x32 margin-left-s" onclick="onWindowBack()">
                     <img src="res/board_ic_arrow_left.png">
                 </figure>
             </div>
@@ -26,14 +24,14 @@
         <hr/>
         <div align="center">
             <div class="thumbnail">
-                <figure class="image is-128x128	margin-left-s" onclick="backAction()">
+                <figure class="image is-128x128	margin-left-s">
                     <img src="res/info_air_conditioner.png">
                 </figure>
             </div>
             <div class="has-text-weight-bold" align="center">DEVICE NAME</div>
             <div style="margin-top: 15px">Controller version</div>
             <div>(1.7.1.00-211)</div>
-            <div align="left" style="margin: 200px 0 30px 30px"><u>Open source licenses</u></div>
+            <div align="left" style="margin: 200px 0 30px 30px"><a href="opensourcelicenses.html"><u>Open source licenses</u></a></div>
         </div>
 	</body>
 </html>

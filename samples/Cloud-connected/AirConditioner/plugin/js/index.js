@@ -30,7 +30,7 @@ function init() {
 	document.getElementById("buttonMode").addEventListener("click", function(){
 		var modalData = '<div class="box">'
 		modalData += '<div class="has-text-weight-bold">MODE</div>';
-		var modes = ["Auto", "Cool", "CoolClean", "Dry", "DryClean", "FanOnly", "Heat", "HeatClean"];
+		var modes = ["Auto", "Cool", "CoolClean", "Dry", "DryClean", "FanOnly", "Heat", "HeatClean", "NotSupported"];
 		var btnMode = document.getElementById('valueMode')
 
 		var arrayLength = modes.length;

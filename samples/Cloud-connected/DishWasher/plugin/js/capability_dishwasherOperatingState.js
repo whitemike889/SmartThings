@@ -25,10 +25,9 @@ var capabilityDishwasherOperatingState = {
 	'onRepresentCallback' : function(result, deviceHandle, uri, rcsJsonString) {
 		scplugin.log.debug(className, arguments.callee.name, result);
 		scplugin.log.debug(className, arguments.callee.name, uri);
-
 		if (result == "OCF_OK" || result == "OCF_RESOURCE_CHANGED" || result == "OCF_RES_ALREADY_SUBSCRIBED") {
-			if(rcsJsonString["currentMachineState"] === undefined) return;
-			if (rcsJsonString["currentMachineState"] == "run") {
+			if(rcsJsonString["machineState"] === undefined) return;
+			if (rcsJsonString["machineState"] == "run") {
 				document.getElementById("state").src = "res/washer_ic_pause.png";
 				document.getElementById("cancel_button").style.visibility = "visible";
 				document.getElementById("ready_text1").style.display = "none";
@@ -37,7 +36,7 @@ var capabilityDishwasherOperatingState = {
 				document.getElementById("run_text2").style.display = "inherit";
 				document.getElementById("run_text3").style.display = "inherit";
 				capabilityDishwasherOperatingState.state = "run";
-			} else if (rcsJsonString["currentMachineState"] == "pause") {
+			} else if (rcsJsonString["machineState"] == "pause") {
 				document.getElementById("state").src = "res/washer_ic_run.png";
 				document.getElementById("cancel_button").style.visibility = "visible";
 				document.getElementById("ready_text1").style.display = "none";
@@ -46,7 +45,7 @@ var capabilityDishwasherOperatingState = {
 				document.getElementById("run_text2").style.display = "inherit";
 				document.getElementById("run_text3").style.display = "inherit";
 				capabilityDishwasherOperatingState.state = "pause";
-			} else if (rcsJsonString["currentMachineState"] == "stop") {
+			} else if (rcsJsonString["machineState"] == "stop") {
 				document.getElementById("state").src = "res/washer_ic_run.png";
 				document.getElementById("cancel_button").style.visibility = "hidden";
 				document.getElementById("ready_text1").style.display = "inherit";
@@ -62,7 +61,7 @@ var capabilityDishwasherOperatingState = {
 	'set' : function(machineState) {
 		scplugin.log.debug(className, arguments.callee.name, "machineState : " + machineState);
 		var setRcsJson = {};
-		setRcsJson["currentMachineState"] = machineState;
+		setRcsJson["machineState"] = machineState;
 		ocfDevice.setRemoteRepresentation(this.href, setRcsJson, this.onRepresentCallback);
 	},
 

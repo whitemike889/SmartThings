@@ -47,12 +47,14 @@ var capabilityThermostatCoolingSetpoint = {
 
 	'increase' : function() {
 		console.log ("increase: " + this.desieredTemperature);
+		if (this.desieredTemperature == 100) return;
 		this.desieredTemperature += 1;
 		this.set(this.desieredTemperature,this.unit);
 	},
 
 	'decrease' : function() {
 		console.log ("decrease: " + this.desieredTemperature);
+		if (this.desieredTemperature == 0) return;
 		this.desieredTemperature -= 1;
 		this.set(this.desieredTemperature,this.unit);
 	},

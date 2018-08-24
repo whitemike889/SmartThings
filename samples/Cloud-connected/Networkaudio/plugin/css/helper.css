@@ -106,22 +106,6 @@ body {
   background-color: #ccc;
 }
 
-#volumebutton {
-    color: #252525;
-    opacity:0.85;
-    width: 32px;
-    height: 32px;
-}
-
-#volumebutton:before {
-    content: "";
-    background-image: url("../res/ic_volume.svg");
-    background-size: contain;
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-}
-
 .volume_icon {
     width: 32px;
     height: 32px;
