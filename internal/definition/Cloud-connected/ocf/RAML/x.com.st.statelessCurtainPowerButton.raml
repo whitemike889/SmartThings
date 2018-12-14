@@ -1,6 +1,6 @@
 #%RAML 0.8
-title: WWST Stateless Fanspeed Button
-version: v1.0.0-20180823
+title: WWST Stateless Curtain Power Button
+    {
 documentation:
 - title: Copyright (c) 2018 Samsung Electronics Co., Ltd. All rights reserved.
   	       Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.
@@ -10,15 +10,12 @@ documentation:
         2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 	      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-schemas:
-  - Button: |
-    {
-      "id": "http://www.samsung.com/schemas/x.com.st.statelessFanspeedButton.json#",
+      "id": "http://www.samsung.com/schemas/x.com.st.statelessCurtainPowerButton.json#",
       "$schema": "http://json-schema.org/draft-04/schema#",
       "description": "Copyright (c) 2016, 2017, 2018 SmartThings. All rights reserved.",
-      "title": "WWST Stateless Fanspeed Button",
+      "title": "WWST Stateless Curtain Power Button",
       "definitions": {
-        "x.com.st.statelessFanspeedButton": {
+        "x.com.st.statelessCurtainPowerButton": {
           "type": "object",
           "properties": {
             "availableButtons": {
@@ -27,13 +24,13 @@ schemas:
               "description": "Array of possible buttons the device supports.",
               "items": {
                 "type": "string",
-                "enum": ["fanspeedUp", "fanspeedDown"]
+                "enum": ["open", "close", "pause"]
               }
             },
             "button": {
               "description": "Desired button",
               "type": "string",
-              "enum": ["fanspeedUp", "fanspeedDown"]
+              "enum": ["open", "close", "pause"]
             }
           }
         }
@@ -44,28 +41,27 @@ schemas:
           "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
         },
         {
-          "$ref": "#/definitions/x.com.st.statelessFanspeedButton"
+          "$ref": "#/definitions/x.com.st.statelessCurtainPowerButton"
         }
       ],
       "required": [
-        "availableButtons",
-        "button"
+        "availableButtons"
       ]
     }
 - ButtonUpdate: |
     {
-      "id": "http://www.samsung.com/schemas/x.com.st.statelessFanspeedButton.json#",
+      "id": "http://www.samsung.com/schemas/x.com.st.statelessCurtainPowerButton.json#",
       "$schema": "http://json-schema.org/draft-04/schema#",
       "description": "Copyright (c) 2016, 2017, 2018 SmartThings. All rights reserved.",
-      "title": "WWST Stateless Fanspeed Button Update",
+      "title": "WWST Stateless Curtain Power Button Update",
       "definitions": {
-        "x.com.st.statelessFanspeedButton": {
+        "x.com.st.statelessCurtainPowerButton": {
           "type": "object",
           "properties": {
             "button": {
               "description": "Desired button",
               "type": "string",
-              "enum": ["fanspeedUp", "fanspeedDown"]
+              "enum": ["open", "close", "pause"]
             }
           }
         }
@@ -76,7 +72,7 @@ schemas:
           "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
         },
         {
-          "$ref": "#/definitions/x.com.st.statelessFanspeedButton"
+          "$ref": "#/definitions/x.com.st.statelessCurtainPowerButton"
         }
       ],
       "required": [
@@ -92,13 +88,13 @@ traits:
 
 /WWSTPlayermodesResURI:
   description: |
-        Stateless Fanspeed Button
-  displayName: WWST Stateless Fanspeed Button
+        Stateless Curtain Power Button
+  displayName: WWST Stateless Curtain Power Button
   is: [ interface ]
 
   get:
     description: |
-      Retrieves the current Stateless Fanspeed Button
+      Retrieves the current Stateless Curtain Power Button
     responses:
       200:
         body:
@@ -106,22 +102,21 @@ traits:
             schema: Button
             example: |
               {
-                "rt":             ["x.com.st.statelessFanspeedButton"],
+                "rt":             ["x.com.st.statelessCurtainPowerButton"],
                 "id":             "unique_example_id",
-                "availableButtons": ["fanspeedUp", "fanspeedDown"],
-                "button": "fanspeedUp"
+                "availableButtons": ["open", "close", "pause"]
               }
 
   post:
     description: |
-      Sets the desired Stateless Fanspeed Button
+      Sets the desired Stateless Curtain Power Button
     body:
       application/json:
         schema: ButtonUpdate
         example: |
           {
             "id":    "unique_example_id",
-            "button": "fanspeedUp"
+            "button": "open"
           }
     responses:
       200:
@@ -131,7 +126,7 @@ traits:
             example: |
               {
                 "id":    "unique_example_id",
-                "button": "fanspeedUp"
+                "button": "open"
               }
       403:
         description: |
@@ -145,6 +140,6 @@ traits:
               {
                 "id":             "unique_example_id",
                 "availableButtons": [],
-                "button": "fanspeedUp"
+                "button": "open"
               }
 
