@@ -1,6 +1,6 @@
 #%RAML 0.8
-title: STButton
-version: v1.1.1-20180625
+title: STaudioStream
+version: v0.0.1-20181218
 documentation:
 - title: Copyright (c) 2018 Samsung Electronics Co., Ltd. All rights reserved.
   	       Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.
@@ -11,69 +11,87 @@ documentation:
 
 	      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-- Button: |
+- Audiostream: |
     {
-      "id": "http://www.samsung.com/schemas/x.com.st.button.json#",
+      "id": "http://www.samsung.com/schemas/x.com.st.audioStream.json#",
       "$schema": "http://json-schema.org/draft-04/schema#",
-      "description" : "Copyright (c) 2016, SmartThings. All rights reserved.",
-      "title": "STButton",
+      "description" : "Copyright (c) 2016, 2017, 2018 SmartThings. All rights reserved.",
+      "title": "ST audioStream",
       "definitions": {
-        "x.com.st.button": {
+        "x.com.st.audioStream": {
+          "type": "object",
           "properties": {
-            "button": {
+            "uri": {
               "type": "string",
-              "enum": ["Ready", "pushed", "held", "double", "pushed_2x", "pushed_3x", "pushed_4x", "pushed_5x", "pushed_6x", "down", "down_2x", "down_3x", "down_4x", "down_5x", "down_6x", "down_hold", "up", "up_2x", "up_3x", "up_4x", "up_5x", "up_6x", "up_hold"],
-              "description": "Status of the button"
-            },
-            "numberOfButtons": {
-                "type": "number",
-                "description": "The number of buttons on the device"
-            },
-            "supportedButtonValues": {
-              "type": "array",
-              "readOnly": true,
-              "description": "Array of possible button states the device supports.",
-              "items": {
-                "type": "string",
-                "enum": ["Ready", "pushed", "held", "double", "pushed_2x", "pushed_3x", "pushed_4x", "pushed_5x", "pushed_6x", "down", "down_2x", "down_3x", "down_4x", "down_5x", "down_6x", "down_hold", "up", "up_2x", "up_3x", "up_4x", "up_5x", "up_6x", "up_hold"]
-              }
+              "description": "The location the device should use to play the stream"
+            }
+            "command": {
+              "type": "string",
+              "enum": ["startAudio", "startAudio"],
+              "description": "Start/Stop the audio stream"
             }
           }
         }
       },
       "type": "object",
       "allOf": [
-        {"$ref": "oic.core.json#/definitions/oic.core"},
-        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-        {"$ref": "#/definitions/x.com.st.button"}
+        {
+          "$ref": "oic.core.json#/definitions/oic.core"
+        },
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.audioStream"
+        }
       ],
-      "required": ["button"]
+      "required": ["uri"]
     }
 traits:
- - interface :
-     queryParameters:
-       if:
-         enum: ["oic.if.baseline","oic.if.s"]
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline", "x.com.st.if.temporary"]
 
-/button:
-  displayName: Button
+/audioStream:
   description: |
-    This resource implements button capability from SmartThings.
-
-  is : ['interface']
-
+        This resource allows for the control of an audioStream device
+  displayName: WWST audioStream
+  is: [ interface ]
   get:
     description: |
-      Retrieves the current status of button.
-
-    responses :
+      Retrieves the uri of the audio stream
+    responses:
       200:
         body:
           application/json:
-            schema: Button
+            schema: Audiostream
             example: |
               {
+                "rt": ["x.com.st.audioStream"],
                 "id": "unique_example_id",
-                "button": "pushed",
-                "numberOfButtons": 3
+                "uri": "uri example"
+              }
+  post:
+    description: |
+      Start/Stop the audioStream
+    body:
+      application/json:
+        schema: Audiostream
+        example: |
+          {
+            "id":    "unique_id",
+            "command": "startAudio"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Audiostream
+            example: |
+              {
+                "rt": ["x.com.st.audioStream"],
+                "id": "unique_example_id",
+                "uri": "uri exmaple",
+                "command": "startAudio"
               }
