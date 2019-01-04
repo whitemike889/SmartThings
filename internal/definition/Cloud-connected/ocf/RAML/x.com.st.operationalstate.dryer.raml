@@ -39,7 +39,7 @@ schemas:
                 "type": "string"
               }
             },
-            "remainingTime": {
+            "completionTime": {
               "type": "integer",
               "description": "Ramaining Time"
             }
@@ -56,7 +56,7 @@ schemas:
         }
       ],
       "required": [
-        "dryerJobState","machineState","supportedMachineStates","remainingTime"
+        "dryerJobState","machineState","supportedMachineStates","completionTime"
       ]
     }
 
@@ -119,7 +119,7 @@ traits:
               "dryerJobState": "cooling",
               "machineState": "stop",
               "supportedMachineStates" : ["stop", "pause", "run" ],
-              "remainingTime" : 1503374528
+              "completionTime" : 1503374528
               }
 
   post:
